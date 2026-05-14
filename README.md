@@ -1,126 +1,31 @@
-# 🇯🇵 JLPT Master — 日本語能力試驗單字學習 App
+# 🎌 JLPT Master 日語單字學習 App
 
-一款專為 JLPT（日本語能力試驗）考生設計的線上單字學習工具，涵蓋 **N1～N5 共 10,000+ 單字**，支援單字卡、隨機測驗、難字收藏等功能。
+**建立日期**：2026-05-14
+**技術堆疊**：HTML5, Vanilla CSS, Vanilla JavaScript, LocalStorage, Web Speech API
+**運行環境**：瀏覽器 (前端純靜態網頁，支援手機版，可部署於 GitHub Pages)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/JLPT-N1~N5-blueviolet?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Words-10%2C000%2B-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Language-繁體中文-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
-</p>
+## 🎯 專案目標
+打造一個無需依賴後端伺服器、可直接在任何設備的瀏覽器上執行的 JLPT 單字學習應用程式。支援 N1 到 N5 約一萬個單字，具備翻轉單字卡、隨機測驗、以及難字收藏功能。透過 LocalStorage 記憶學習進度，讓使用者可以隨時接續上次的進度繼續學習，並透過響應式設計提供完美的手機端體驗。
 
----
+## 💡 核心功能與技術細節
+1. **進度與資料持久化**：不需建立資料庫，完全依賴瀏覽器的 `LocalStorage` 來儲存使用者的「個人檔案設定」、「上次背誦位置」、「測驗歷史記錄」與「難字收藏清單」，確保關閉網頁後資料不流失。
+2. **免外掛語音朗讀**：整合瀏覽器原生的 `Web Speech API` (TTS)，不需要額外串接語音檔案 API，即可讓使用者聆聽日文單字與例句的發音。
+3. **隨機測驗與錯題回顧**：實作隨機出題邏輯，每次從牌組中隨機抽出 10 題，題型包含「漢字選讀音」、「讀音選漢字」、「例句填空」。測驗結束後提供完整的錯題解答與總結，協助弱點加強。
+4. **資料清洗與優化**：透過腳本解析萬詞 CSV 原始檔，過濾重複資料。將帶有 HTML 與 Furigana (假名注音) 標籤的例句進行清洗與對應，保留純文字以供語音朗讀，同時在介面上正常渲染注音，確保閱讀與發音的雙重體驗。
 
-## ✨ 功能特色
+## 🚀 如何使用應用程式
 
-### 📚 單字卡學習
-- 支援 **N1 / N2 / N3 / N4+N5** 四個等級牌組
-- 正面顯示漢字 + 平假名讀音 + 發音按鈕
-- 背面顯示繁體中文釋義 + 例句 + 例句翻譯
-- 可使用滑桿或輸入框跳到指定單字
-- **記憶功能**：每次開啟自動跳到上次最後複習的位置
-
-### 📝 隨機測驗
-- 每次 **10 題**，每題 **10 分**，滿分 **100 分**
-- 三種題型隨機出題：
-  - 🔤 漢字 → 讀音
-  - 🔤 讀音 → 漢字
-  - 📖 例句填空
-- 即時顯示答對/答錯反饋
-- 測驗完成後可查看錯題詳解
-
-### 📊 測驗記錄
-- 完整保存每次測驗成績、用時、日期
-- 可回顧歷次測驗的錯題，方便針對弱點複習
-
-### ⭐ 難字收藏
-- 單字卡右上角星號標記難字
-- 獨立的「難字」分頁，可依等級篩選
-- 方便集中記憶容易忘記的單字
-
-### 👤 個人化設定
-- 首次使用設定暱稱、目標級數、考試日期
-- 介面上方顯示**考試倒數天數**
-- 可隨時修改個人資料
-
-### 📱 行動優先設計
-- 完全響應式設計，手機瀏覽器也能完美使用
-- 深色主題，長時間學習不傷眼
-- 支援鍵盤快捷鍵（空白鍵翻卡、左右鍵切換）
-
----
-
-## 🚀 使用方式
-
-### 線上使用（GitHub Pages）
-
-直接開啟以下網址即可使用：
-
-👉 **https://yameitaitra-oss.github.io/JPLT_Vocab/**
-
-### 本地使用
-
-1. Clone 此專案：
-   ```bash
-   git clone https://github.com/yameitaitra-oss/JPLT_Vocab.git
-   ```
-2. 用瀏覽器開啟 `index.html` 即可
-
-> 本專案為純靜態網頁（HTML + CSS + JavaScript），**無需安裝任何套件或框架**。
-
----
-
-## 🗂️ 專案結構
-
-```
-JPLT_Vocab/
-├── index.html    # 主頁面結構
-├── style.css     # 深色主題樣式
-├── app.js        # 應用邏輯（單字卡、測驗、記錄、收藏）
-├── data.js       # JLPT N1~N5 單字資料（10,000+ 筆）
-└── README.md     # 本文件
-```
-
----
+專案為純前端靜態網頁，無需安裝任何套件或伺服器環境。
+1. **線上使用**：直接點擊連結即可在瀏覽器開始學習：[https://yameitaitra-oss.github.io/JPLT_Vocab/](https://yameitaitra-oss.github.io/JPLT_Vocab/)
+2. **本地執行**：將此專案資料夾下載 (clone) 至電腦後，雙擊用瀏覽器開啟 `index.html` 即可運行。
 
 ## 📦 資料來源與致謝
 
-本專案的單字資料來自以下優秀的開源專案：
+本專案的單字資料庫來自優質的開源專案，特別感謝原作者的無私分享與持續維護：
 
-### 🥚 [【egg rolls】JLPT N1～N5 一万詞 Anki 牌組 v3](https://github.com/5mdld/anki-jlpt-decks)
-
-> 由 [**@5mdld**](https://github.com/5mdld) 精心整理的 JLPT 一萬詞 Anki 牌組，包含：
-> - 完整的 N1～N5 單字收錄
-> - 日文原文例句與中文翻譯（簡體 + 繁體）
-> - 高品質語音檔案
-> - 持續更新與維護
->
-> 目前使用版本：**v26.04.26**
-
-**特別感謝 @5mdld 的無私分享與持續維護，讓這些高品質的學習資源得以被更多人使用。** 🙏
-
-如果你也在使用 Anki 學日文，強烈推薦直接使用 [egg rolls 的 Anki 牌組](https://github.com/5mdld/anki-jlpt-decks)！
-
----
-
-## 🛠️ 技術棧
-
-- **HTML5** — 語意化結構
-- **CSS3** — 自訂深色主題、玻璃擬態效果、響應式設計
-- **Vanilla JavaScript** — 零依賴，使用原生 Web API
-- **LocalStorage** — 本地儲存學習進度、測驗記錄、難字清單
-- **Web Speech API** — 日語語音朗讀（TTS）
-
----
-
-## 📄 授權
-
-本專案以 [MIT License](LICENSE) 開源。
-
-單字資料版權歸 [egg rolls JLPT 牌組](https://github.com/5mdld/anki-jlpt-decks) 原作者所有。
-
----
-
-<p align="center">
-  <b>がんばって！祝你考試順利！🌸</b>
-</p>
+**【egg rolls】JLPT N1～N5 一万詞 Anki 牌組 v3**
+- 來源連結：[https://github.com/5mdld/anki-jlpt-decks](https://github.com/5mdld/anki-jlpt-decks)
+- **授權聲明**：本專案使用之單字資料遵循 **CC BY-NC 4.0 (姓名標示-非商業性)** 授權條款。資料原作者為 **egg rolls** (@5mdld)。
+- **修改說明**：為符合本網頁應用程式（App）的運作需求，我們將原作者公開的 `notes.csv` 原始檔進行了解析、過濾重複項，並轉換為 JavaScript (JSON) 陣列格式 (`data.js`)，同時清洗了部分例句的 HTML 標籤以供語音朗讀使用。
+- **非商業性聲明**：本專案（包含程式碼與單字資料）僅供個人學習與開源交流使用，不包含任何商業行為、付費機制或廣告。
+- 若您習慣使用 Anki，強烈推薦直接去下載該原始牌組使用！
