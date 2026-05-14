@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             $('quiz-type-label').textContent = '例句填空';
             const blanked = (q.item.example_raw || '').replace(q.item.word, '＿＿＿');
-            $('quiz-stem').textContent = blanked;
+            $('quiz-stem').innerHTML = parseFurigana(blanked);
             $('quiz-stem-sub').textContent = q.item.example_meaning || '';
         }
 
