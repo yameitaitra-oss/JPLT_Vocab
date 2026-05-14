@@ -185,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateNavControls();
         updateStarUI();
         savePosition();
+        if (isAutoplayEnabled) speak();
     }
 
     function parseFurigana(text) {
@@ -204,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function flipCard() {
         isFlipped = !isFlipped;
         card.classList.toggle('flipped');
-        if (isFlipped && isAutoplayEnabled) speak();
     }
     function nextCard() {
         if (currentIndex < currentDeck.length - 1) { currentIndex++; updateCard(); }
@@ -213,13 +213,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function prevCard() { if (currentIndex > 0) { currentIndex--; updateCard(); } }
     function jumpToCard(i) { if (i >= 0 && i < currentDeck.length) { currentIndex = i; updateCard(); } }
     function speak() {
+        speechSynthesis.cancel();
         const u = new SpeechSynthesisUtterance(currentDeck[currentIndex].word);
         u.lang = 'ja-JP'; u.rate = 0.9; speechSynthesis.speak(u);
     }
     function speakExample() {
+        speechSynthesis.cancel();
         const item = currentDeck[currentIndex];
-        let text = item.example_raw || item.example;
-        if (!item.example_raw) { const d = document.createElement('div'); d.innerHTML = item.example; text = d.textContent; }
+        let text = item.example;
         const u = new SpeechSynthesisUtterance(text);
         u.lang = 'ja-JP'; u.rate = 0.85; speechSynthesis.speak(u);
     }
