@@ -56,13 +56,13 @@
 
 直接開啟以下網址即可使用：
 
-👉 **https://yameitaitra.github.io/jlpt-master/**
+👉 **https://yameitaitra-oss.github.io/JPLT_Vocab/**
 
 ### 本地使用
 
 1. Clone 此專案：
    ```bash
-   git clone https://github.com/yameitaitra/jlpt-master.git
+   git clone https://github.com/yameitaitra-oss/JPLT_Vocab.git
    ```
 2. 用瀏覽器開啟 `index.html` 即可
 
@@ -73,7 +73,7 @@
 ## 🗂️ 專案結構
 
 ```
-jlpt-master/
+JPLT_Vocab/
 ├── index.html    # 主頁面結構
 ├── style.css     # 深色主題樣式
 ├── app.js        # 應用邏輯（單字卡、測驗、記錄、收藏）
