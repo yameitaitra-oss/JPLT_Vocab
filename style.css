@@ -95,14 +95,16 @@ header{padding:1rem 1.25rem .5rem;position:sticky;top:0;background:rgba(10,14,26
 
 /* Card */
 .card-container{perspective:1000px;width:100%;aspect-ratio:4/5;max-height:440px;margin:0 auto;}
-.card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s var(--ease);cursor:pointer;}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.2,1);cursor:pointer;}
 .card.flipped{transform:rotateY(180deg);}
-.card-face{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:1.25rem;border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem 1.5rem;text-align:center;overflow:hidden;}
+.card.flipped .card-front{visibility:hidden;}
+.card:not(.flipped) .card-back{visibility:hidden;}
+.card-face{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:1.25rem;border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem 1.5rem;text-align:center;overflow:hidden;}
 .card-front{background:linear-gradient(160deg,#1a2236 0%,#111827 100%);}
 .card-back{transform:rotateY(180deg);background:linear-gradient(160deg,#1e293b,#1a2236);justify-content:flex-start;padding-top:2.5rem;}
 
 /* Star Button */
-.star-btn{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--text3);cursor:pointer;padding:6px;border-radius:50%;transition:all .2s;z-index:5;}
+.star-btn{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--text3);cursor:pointer;padding:6px;border-radius:50%;transition:all .2s;z-index:5;backface-visibility:hidden;-webkit-backface-visibility:hidden;}
 .star-btn:hover{color:var(--yellow);transform:scale(1.15);}
 .star-btn.starred{color:var(--yellow);fill:var(--yellow);}
 .star-btn.starred svg{fill:var(--yellow);}
