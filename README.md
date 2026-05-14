@@ -1,8 +1,8 @@
 # 🎌 JLPT Master 日語單字學習 App
 
-**建立日期**：2026-05-14
-**技術堆疊**：HTML5, Vanilla CSS, Vanilla JavaScript, LocalStorage, Web Speech API
-**運行環境**：瀏覽器 (前端純靜態網頁，支援手機版，可部署於 GitHub Pages)
+- **建立日期**：2026-05-14
+- **技術堆疊**：HTML5, Vanilla CSS, Vanilla JavaScript, LocalStorage, Web Speech API
+- **運行環境**：瀏覽器 (前端純靜態網頁，支援手機版，可部署於 GitHub Pages)
 
 ## 🎯 專案目標
 打造一個無需依賴後端伺服器、可直接在任何設備的瀏覽器上執行的 JLPT 單字學習應用程式。支援 N1 到 N5 約一萬個單字，具備翻轉單字卡、隨機測驗、以及難字收藏功能。透過 LocalStorage 記憶學習進度，讓使用者可以隨時接續上次的進度繼續學習，並透過響應式設計提供完美的手機端體驗。
