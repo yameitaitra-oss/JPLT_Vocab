@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wordDisplay.textContent = item.word;
         readingFront.textContent = item.reading;
         meaningDisplay.textContent = item.meaning;
-        exampleDisplay.innerHTML = parseFurigana(item.example);
+        exampleDisplay.innerHTML = parseFurigana(item.example_raw || item.example);
         if (item.example_meaning) {
             exampleMeaningDisplay.textContent = item.example_meaning;
             exampleMeaningDisplay.style.display = 'block';
